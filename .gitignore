@@ -2,3 +2,6 @@
 **/build
 **/dist
 **/iot_camera.egg-info
+iot_camera/*.pyc
+iot_camera/*.jpg
+iot_camera/*.h264

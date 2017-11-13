@@ -2,9 +2,8 @@ import time
 import picamera
 import datetime
 import os
-import iot_camera.pushbullet as pushbullet
 
-filename = None
+fileName = None
 
 def removeoldpics():
     os.remove(fileName)
@@ -12,11 +11,9 @@ def removeoldpics():
 def getFileName():
     return datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S.jpg")
 
-cam = picamera.PiCamera()
-
 def makePreview(lengthInSec):
     fileName = getFileName()
-    cam.start_preview()
+    cam = picamera.PiCamera()
+    #cam.start_preview()
     cam.capture(fileName)
-    pushbullet.sendPushNotificationWithFile(fileName)
-    cam.stop_preview()
+    #cam.stop_preview()
