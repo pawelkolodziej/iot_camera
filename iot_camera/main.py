@@ -2,6 +2,7 @@ import pir
 import camera as cam
 import os
 import time
+import server
 
 def startMotionDetect(): 
     while True:
@@ -14,4 +15,5 @@ def startMotionDetect():
             #os.system('bash ./pushbullet.sh "hey, its me"')
         time.sleep(1)
         
-startMotionDetect()
+#startMotionDetect()
+server.startServer()

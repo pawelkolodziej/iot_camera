@@ -9,5 +9,5 @@ setup(
     author='PawelK',
     author_email='pakolodziej@gmail.com',
     description='Raspberry PI - if motion detect, make a preview and send as puhs notofication',
-    install_requires=['picamera']
+    install_requires=['picamera','flask']
 )
