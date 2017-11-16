@@ -1,10 +1,11 @@
 import pir
-import camera as cam
+from camera import Camera
 import os
 import time
 import server
 
-def startMotionDetect(): 
+def startMotionDetect():
+    cam = Camera()
     while True:
         motion = pir.isMotionDetected()
         if motion==1: #PIR signal is LOW
