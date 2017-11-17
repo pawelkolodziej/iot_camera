@@ -82,6 +82,7 @@ class BaseCamera(object):
 
     @staticmethod
     def frames():
+        print 'base camera frames'
         """"Generator that returns frames from the camera."""
         raise RuntimeError('Must be implemented by subclasses.')
 
@@ -89,6 +90,7 @@ class BaseCamera(object):
     def _thread(cls):
         """Camera background thread."""
         print('Starting camera thread.')
+        print 'base camera _thread'
         frames_iterator = cls.frames()
         for frame in frames_iterator:
             BaseCamera.frame = frame

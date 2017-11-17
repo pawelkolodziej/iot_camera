@@ -1,12 +1,11 @@
 from camera import Camera
-from flask import Flask, Response, Request, render_template
+from flask import Flask, Response, request, render_template
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
-@app.route('/<param>')
+@app.route('/')
 def index(param=None):
-    return render_template('index.html',name = param)
+    return render_template('index.html')
 
 def gen(camera):
     while True:
@@ -17,5 +16,13 @@ def gen(camera):
 def video_feed():
     return Response(gen(Camera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/stop')
+def shutdown():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+    return 'Server shutting down...'
+
 def startServer():
-    app.run(host='0.0.0.0', port=90, threaded=True)
+    app.run(host='0.0.0.0', port=96, threaded=True)

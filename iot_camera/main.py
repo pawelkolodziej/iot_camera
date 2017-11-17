@@ -3,6 +3,7 @@ from camera import Camera
 import os
 import time
 import server
+import iot_temp_humidity.sensor as sensor
 
 def startMotionDetect():
     cam = Camera()
@@ -17,4 +18,5 @@ def startMotionDetect():
         time.sleep(1)
         
 #startMotionDetect()
+sensor.getTempAndHumidityFromSensor()
 server.startServer()
